@@ -16,7 +16,8 @@ body {
 }
 
 .score-box,
-.player-panel {
+.player-switch-panel,
+.player-purchase-panel {
     width: fit-content;
     margin-bottom: 12px;
     padding: 8px 14px;
@@ -55,19 +56,18 @@ body {
     font-weight: bold
 }
 
-.player-panel {
-    width: 100%
-}
-
-.player-switch {
+.player-switch-panel {
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
     display: flex;
     gap: 10px;
-    margin-bottom: 8px;
-    padding: 8px 0;
     background: #fff
+}
+
+.player-purchase-panel {
+    width: 100%
 }
 
 .player-toggle {
@@ -80,9 +80,14 @@ body {
     font-weight: bold
 }
 
-.player-toggle.active {
-    background: #6b5e9c;
-    color: #fff
+.player-toggle.p1-active {
+    background: #EDA1AD;
+    color: #000
+}
+
+.player-toggle.p2-active {
+    background: #53D2B6;
+    color: #000
 }
 
 .player-result-row {
@@ -102,11 +107,13 @@ body {
 .top-table,
 .middle-table,
 .five-table {
-    border-top: 8px solid #6b5e9c
+    border-top: 8px solid transparent;
+    border-image: linear-gradient(90deg, #EDA1AD, #53D2B6) 1
 }
 
 .five-table {
-    border-bottom: 8px solid #6b5e9c
+    border-bottom: 8px solid transparent;
+    border-image: linear-gradient(90deg, #EDA1AD, #53D2B6) 1
 }
 
 .score-table th,
@@ -145,13 +152,11 @@ body {
     font-weight: bold
 }
 
-.table-button:hover,
-.id-button:hover {
+.table-button:hover {
     background: #f0f0f0
 }
 
-.table-button.active,
-.id-button.active {
+.table-button.active {
     background: #6b5e9c;
     color: #fff
 }
@@ -167,6 +172,30 @@ body {
     background: #eee;
     color: #999;
     cursor: not-allowed
+}
+
+.row-button.row-purple {
+    background: #7f61b5
+}
+
+.row-button.row-red {
+    background: #bb5758
+}
+
+.row-button.row-purple:hover {
+    background: #7f61b5
+}
+
+.row-button.row-red:hover {
+    background: #bb5758
+}
+
+.row-button.row-purple.active {
+    background: #56388A
+}
+
+.row-button.row-red.active {
+    background: #932C2D
 }
 
 .score-cell {
@@ -370,4 +399,120 @@ body {
 .dollar-cell,
 .player-dollar-cell {
     padding: 4px
+}
+
+.table-gradient-separator {
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(90deg, #EDA1AD, #53D2B6);
+    margin: 0;
+}
+
+.middle-table,
+.five-table {
+    border-top: 0 !important;
+}
+
+/* 표 경계 그라데이션 띠: 위/사이/아래 공통 */
+.table-gradient-separator {
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(90deg, #EDA1AD, #53D2B6);
+    margin: 0;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.top-table {
+    border-top: 0 !important;
+}
+
+.middle-table,
+.five-table {
+    border-top: 0 !important;
+}
+
+.five-table {
+    border-bottom: 0 !important;
+}
+
+/* 완/망/무/흑/의/식 선택 시 그라데이션 */
+.select-button.active {
+    background: linear-gradient(90deg, #EDA1AD, #53D2B6) !important;
+    color: #000 !important;
+}
+
+.select-button.active:hover {
+    background: linear-gradient(90deg, #EDA1AD, #53D2B6) !important;
+    color: #000 !important;
+}
+
+/* 1-1~5-6 행 버튼 비활성 색상: 이전보다 아주 조금 어둡게 */
+.row-button.row-purple {
+    background: #7355a8 !important;
+}
+
+.row-button.row-red {
+    background: #ad4d4e !important;
+}
+
+.row-button.row-purple:hover {
+    background: #7355a8 !important;
+}
+
+.row-button.row-red:hover {
+    background: #ad4d4e !important;
+}
+
+.row-button.row-purple.active {
+    background: #56388A !important;
+}
+
+.row-button.row-red.active {
+    background: #932C2D !important;
+}
+
+/* 최종점수~1번 항목 박스와 2번 항목 표 박스 분리 */
+.item-two-panel {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 8px 14px 14px 14px;
+    border: 2px solid #000;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.item-two-title {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item-two-title #score {
+    color: #06c;
+    font-weight: bold;
+}
+
+/* 그라데이션 띠 검은 선 테두리 보강: 위/아래/좌/우 모두 표시 */
+.table-gradient-separator {
+    height: 10px !important;
+    width: 100% !important;
+    background: linear-gradient(90deg, #EDA1AD, #53D2B6) !important;
+    margin: 0 !important;
+    border: 1px solid #000 !important;
+    box-sizing: border-box !important;
+}
+
+.table-gradient-top {
+    border-top: 1px solid #000 !important;
+}
+
+.table-gradient-bottom {
+    border-bottom: 1px solid #000 !important;
+}
+
+/* 2번 항목 표가 item-two-panel 안에 들어가므로 바깥쪽 여백 정리 */
+.item-two-panel .score-table {
+    margin: 0;
 }
