@@ -1,3 +1,373 @@
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:#fff;color:#000}.container{width:1020px;margin:40px auto}.score-box{width:fit-content;margin-bottom:12px;padding:8px 14px;border:2px solid #000;background:#fff;font-size:20px;font-weight:bold}.score-panel{line-height:1.8}.score-input{width:110px;height:28px;padding:2px 6px;border:1px solid #000;font-size:18px;font-weight:bold;text-align:right}#finalScore,#itemOneScore,#score,#itemThreeMultiplier,#itemFourMultiplier,#itemFiveScore,#itemSixScore,#itemSevenScore{color:#06c;font-weight:bold}.score-table{width:100%;border-collapse:collapse;table-layout:fixed;margin:0}.top-table,.middle-table,.five-table{border-top:8px solid #6b5e9c}.five-table{border-bottom:8px solid #6b5e9c}.score-table th,.score-table td{border:1px solid #000;height:42px;text-align:center;vertical-align:middle;font-size:16px;font-weight:bold}.score-table thead th{height:46px;background:#fff}.row-header,.row-label{width:70px}.total-header,.total-cell{width:90px}.table-button,.id-button{width:100%;height:100%;border:none;background:#fff;cursor:pointer;font-size:16px;font-weight:bold}.table-button:hover,.id-button:hover{background:#f0f0f0}.table-button.active,.id-button.active{background:#6b5e9c;color:#fff}.base-button.active{background:#d9d9d9;color:#000;cursor:default}.id-button.disabled,.id-button:disabled{background:#eee;color:#999;cursor:not-allowed}.score-cell{background:#fff;color:#000;transition:.2s}.score-cell.active,.group-score.active,.dollar-cell.active{background:#0bad75;color:#fff}.empty-cell{background:#fff}.total-cell{background:#f7f7f7}.total-cell.active{background:#222;color:#fff}.multiplier-panel,.extra-score-panel{margin-top:18px;padding:12px 14px;border:2px solid #000;background:#fff;font-size:16px;font-weight:bold}.multiplier-result,.extra-score-result{margin-bottom:8px;font-size:20px}.checklist-box{display:flex;flex-direction:column;gap:6px;padding:8px 10px;border:1px solid #000;background:#fff}.checklist-title{margin-bottom:4px;font-size:18px}.checklist-box label{line-height:1.5;cursor:pointer}.checklist-box input[type="checkbox"],.checklist-box input[type="radio"]{margin-right:6px}.inline-input-label{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.small-number-input{width:70px;height:26px;padding:2px 6px;border:1px solid #000;font-size:16px;font-weight:bold;text-align:right}.dollar-table{width:100%;border-collapse:collapse;table-layout:fixed;margin:8px 0 12px}.dollar-table th,.dollar-table td{border:1px solid #000;height:96px;text-align:center;vertical-align:middle;font-size:16px;font-weight:bold}.dollar-table th{width:90px;background:#f7f7f7}.dollar-cell{width:100%;height:100%;border:none;background:#fff;cursor:pointer;font-size:16px;font-weight:bold}.dollar-cell:hover{background:#f0f0f0}
-.dollar-cell.active:hover{background:#0bad75;color:#fff}
-.dollar-cell:not(.active):hover{background:#f0f0f0}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #000
+}
+
+.container {
+    width: 1020px;
+    margin: 40px auto
+}
+
+.score-box,
+.player-panel {
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 8px 14px;
+    border: 2px solid #000;
+    background: #fff;
+    font-size: 20px;
+    font-weight: bold
+}
+
+.score-panel {
+    line-height: 1.8
+}
+
+.score-input {
+    width: 110px;
+    height: 28px;
+    padding: 2px 6px;
+    border: 1px solid #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right
+}
+
+#finalScore,
+#itemOneScore,
+#score,
+#itemThreeMultiplier,
+#itemFourMultiplier,
+#itemFiveScore,
+#itemSixScore,
+#itemSevenScore,
+#p1Purchase,
+#p2Purchase,
+#p2Bonus {
+    color: #06c;
+    font-weight: bold
+}
+
+.player-panel {
+    width: 100%
+}
+
+.player-switch {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    padding: 8px 0;
+    background: #fff
+}
+
+.player-toggle {
+    flex: 1;
+    height: 46px;
+    border: 2px solid #000;
+    background: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold
+}
+
+.player-toggle.active {
+    background: #6b5e9c;
+    color: #fff
+}
+
+.player-result-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 8px;
+    flex-wrap: wrap
+}
+
+.score-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 0
+}
+
+.top-table,
+.middle-table,
+.five-table {
+    border-top: 8px solid #6b5e9c
+}
+
+.five-table {
+    border-bottom: 8px solid #6b5e9c
+}
+
+.score-table th,
+.score-table td {
+    border: 1px solid #000;
+    height: 72px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.score-table thead th {
+    height: 72px;
+    background: #fff
+}
+
+.row-header,
+.row-label {
+    width: 72px
+}
+
+.total-header,
+.total-cell {
+    width: 90px
+}
+
+.table-button,
+.id-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.table-button:hover,
+.id-button:hover {
+    background: #f0f0f0
+}
+
+.table-button.active,
+.id-button.active {
+    background: #6b5e9c;
+    color: #fff
+}
+
+.base-button.active {
+    background: #d9d9d9;
+    color: #000;
+    cursor: default
+}
+
+.id-button.disabled,
+.id-button:disabled {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed
+}
+
+.score-cell {
+    background: #fff;
+    color: #000;
+    transition: .2s
+}
+
+.score-cell.active,
+.group-score.active,
+.player-dollar-cell.active {
+    background: #0bad75;
+    color: #fff
+}
+
+.player-dollar-cell.free {
+    background: #1976d2;
+    color: #fff
+}
+
+.player-dollar-cell.triple {
+    background: #ffd54f;
+    color: #000
+}
+
+.player-dollar-cell.blocked,
+.dollar-cell.blocked {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed
+}
+
+.empty-cell {
+    background: #fff
+}
+
+.total-cell {
+    background: #f7f7f7
+}
+
+.total-cell.active {
+    background: #222;
+    color: #fff
+}
+
+.multiplier-panel,
+.extra-score-panel {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border: 2px solid #000;
+    background: #fff;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.multiplier-result,
+.extra-score-result {
+    margin-bottom: 8px;
+    font-size: 20px
+}
+
+.checklist-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 10px;
+    border: 1px solid #000;
+    background: #fff
+}
+
+.checklist-title {
+    margin-bottom: 4px;
+    font-size: 18px
+}
+
+.checklist-box label {
+    line-height: 1.5;
+    cursor: pointer
+}
+
+.checklist-box input[type="checkbox"],
+.checklist-box input[type="radio"] {
+    margin-right: 6px
+}
+
+.inline-input-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap
+}
+
+.small-number-input {
+    width: 70px;
+    height: 26px;
+    padding: 2px 6px;
+    border: 1px solid #000;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right
+}
+
+.dollar-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 8px 0 12px
+}
+
+.dollar-table th,
+.dollar-table td {
+    border: 1px solid #000;
+    height: 96px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.dollar-table th {
+    width: 96px;
+    background: #f7f7f7
+}
+
+.dollar-cell,
+.player-dollar-cell {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.dollar-cell.active {
+    background: #ff9800;
+    color: #000
+}
+
+.dollar-cell.duplicate {
+    background: #e53935;
+    color: #fff
+}
+
+.dollar-cell:hover,
+.player-dollar-cell:hover {
+    background: #f0f0f0
+}
+
+.player-dollar-cell.active:hover {
+    background: #0bad75;
+    color: #fff
+}
+
+.player-dollar-cell.free:hover {
+    background: #1976d2;
+    color: #fff
+}
+
+.player-dollar-cell.triple:hover {
+    background: #ffd54f;
+    color: #000
+}
+
+.dollar-cell.active:hover {
+    background: #ff9800;
+    color: #000
+}
+
+.dollar-cell.duplicate:hover {
+    background: #e53935;
+    color: #fff
+}
+
+.dollar-cell.blocked:hover,
+.player-dollar-cell.blocked:hover {
+    background: #eee;
+    color: #999
+}
+
+.dollar-cell img,
+.player-dollar-cell img,
+.select-button img,
+.image-row-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none
+}
+
+.select-button {
+    padding: 6px
+}
+
+.image-row-button {
+    padding: 4px
+}
+
+.dollar-cell,
+.player-dollar-cell {
+    padding: 4px
+}
