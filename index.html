@@ -13,12 +13,12 @@
         <div class="player-switch-panel"><button class="player-toggle active" data-player="p1">1p</button><button
                 class="player-toggle" data-player="p2">2p</button></div>
         <div class="player-purchase-panel">
-            <div class="player-result-row"><span>1p 구매: <span id="p1Purchase">0$</span></span><span>2p 구매: <span
-                        id="p2Purchase">0$</span></span><span>2p 추가점수: <span id="p2Bonus">1500점</span></span></div>
+            <div class="player-result-row"><span>1p 구매: <span id="p1Purchase">0ⓒ</span></span><span>2p 구매: <span
+                        id="p2Purchase">0ⓒ</span></span><span>2p 추가점수: <span id="p2Bonus">1500점</span></span></div>
             <table class="dollar-table player-dollar-table">
                 <tbody>
                     <tr>
-                        <th>50$</th>
+                        <th>50ⓒ</th>
                         <td><button class="player-dollar-cell" data-id="50-1" data-dollar="50" title="50-1"><img
                                     src="images/50-1.png" alt="50-1"></button></td>
                         <td></td>
@@ -28,7 +28,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>40$</th>
+                        <th>40ⓒ</th>
                         <td><button class="player-dollar-cell" data-id="40-1" data-dollar="40" title="40-1"><img
                                     src="images/40-1.png" alt="40-1"></button></td>
                         <td><button class="player-dollar-cell" data-id="40-2" data-dollar="40" title="40-2"><img
@@ -41,7 +41,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>30$</th>
+                        <th>30ⓒ</th>
                         <td><button class="player-dollar-cell" data-id="30-1" data-dollar="30" title="30-1"><img
                                     src="images/30-1.png" alt="30-1"></button></td>
                         <td><button class="player-dollar-cell" data-id="30-2" data-dollar="30" title="30-2"><img
@@ -55,7 +55,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>20$</th>
+                        <th>20ⓒ</th>
                         <td><button class="player-dollar-cell" data-id="20-1" data-dollar="20" title="20-1"><img
                                     src="images/20-1.png" alt="20-1"></button></td>
                         <td><button class="player-dollar-cell" data-id="20-2" data-dollar="20" title="20-2"><img
@@ -68,7 +68,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>10$</th>
+                        <th>10ⓒ</th>
                         <td><button class="player-dollar-cell" data-id="10-1" data-dollar="10" title="10-1"><img
                                     src="images/10-1.png" alt="10-1"></button></td>
                         <td><button class="player-dollar-cell" data-id="10-2" data-dollar="10" title="10-2"><img
@@ -300,21 +300,6 @@
                         <td class="empty-cell"></td>
                         <td class="total-cell" data-group="five" data-row-total="11">0점</td>
                     </tr>
-                    <tr data-group="five" data-row="12">
-                        <td class="row-label"><button class="id-button row-button image-row-button row-purple"
-                                data-group="five" data-row="12" title="5-5"><img src="images/5-2.png"
-                                    alt="5-5"></button></td>
-                        <td class="score-cell" data-group="five" data-row="12" data-score="base" data-a="350"
-                            data-b="240">+350</td>
-                        <td class="score-cell" data-group="five" data-row="12" data-score="a" data-a="620" data-b="320">
-                            +620</td>
-                        <td class="score-cell" data-group="five" data-row="12" data-score="b" data-b="80"></td>
-                        <td class="score-cell" data-group="five" data-row="12" data-score="c" data-a="80">+80</td>
-                        <td class="empty-cell"></td>
-                        <td class="empty-cell"></td>
-                        <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="12">0점</td>
-                    </tr>
                     <tr data-group="five" data-row="13">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
                                 data-group="five" data-row="13" title="5-6"><img src="images/5-2.png"
@@ -330,6 +315,21 @@
                         <td class="empty-cell"></td>
                         <td class="total-cell" data-group="five" data-row-total="13">0점</td>
                     </tr>
+                    <tr data-group="five" data-row="12">
+                        <td class="row-label"><button class="id-button row-button image-row-button row-purple"
+                                data-group="five" data-row="12" title="5-5"><img src="images/5-2.png"
+                                    alt="5-5"></button></td>
+                        <td class="score-cell" data-group="five" data-row="12" data-score="base" data-a="350"
+                            data-b="240">+350</td>
+                        <td class="score-cell" data-group="five" data-row="12" data-score="a" data-a="620" data-b="320">
+                            +620</td>
+                        <td class="score-cell" data-group="five" data-row="12" data-score="b" data-b="80"></td>
+                        <td class="score-cell" data-group="five" data-row="12" data-score="c" data-a="80">+80</td>
+                        <td class="empty-cell"></td>
+                        <td class="empty-cell"></td>
+                        <td class="empty-cell"></td>
+                        <td class="total-cell" data-group="five" data-row-total="12">0점</td>
+                    </tr>
                 </tbody>
             </table>
             <div class="table-gradient-separator table-gradient-bottom"></div>
@@ -338,14 +338,13 @@
             <div class="multiplier-result">3번 항목: <span id="itemThreeMultiplier">1배</span></div>
             <div class="checklist-box">
                 <div class="checklist-title">3번 체크리스트</div><label><input type="checkbox" class="item-three-check"
-                        data-multiplier="1.15"> 3층 보스전에서 불의+불식을 동시에 보유: 1.15배율</label><label><input type="checkbox"
-                        class="item-three-check" data-multiplier="1.05"> 4층 마지막 노드를 통과한 시점에서 불의+불식을 동시에 보유:
+                        data-multiplier="1.15"> 3층 보스전에서 불사+불식을 동시에 보유: 1.15배율</label><label><input type="checkbox"
+                        class="item-three-check" data-multiplier="1.05"> 4층 마지막 노드를 통과한 시점에서 불사+불식을 동시에 보유:
                     1.05배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.35"> 최종 5엔딩
-                    보스전에서 불의+불식을 동시에 보유: 1.35배율</label><label><input type="checkbox" class="item-three-check"
-                        data-multiplier="1.1"> 최종 5엔딩 보스전에서 불의, 불식 중 1개만 보유: 1.1배율</label><label><input type="checkbox"
+                    보스전에서 불사+불식을 동시에 보유: 1.35배율</label><label><input type="checkbox" class="item-three-check"
+                        data-multiplier="1.1"> 최종 5엔딩 보스전에서 불사, 불식 중 1개만 보유: 1.1배율</label><label><input type="checkbox"
                         class="item-three-check" data-multiplier="1.01"> 최종 5엔딩 보스전을 6층에서 클리어한 경우:
-                    1.01배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.2"> 각 팀은 이,
-                    쉐이, 왕, 후소우, 덧없는 몸을 최소 1회씩 처치 성공(예시: 135+245, 235+145, 145+235, 25+245풀강 등):
+                    1.01배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.2"> 각 팀은 이, 쉐이, 왕, 허우서우, 숴의 육신을 최소 1회씩 처치 성공(예시: 135+245, 235+145, 145+235, 25+245풀강 등):
                     1.2배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.01"> 1시간 이내로
                     플레이 완료: 1.01배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="0.9">
                     3시간 초과로 플레이 완료: 0.9배율</label><label><input type="checkbox" class="item-three-check"
@@ -377,7 +376,7 @@
             <table class="dollar-table">
                 <tbody>
                     <tr>
-                        <th>50$</th>
+                        <th>50ⓒ</th>
                         <td><button class="dollar-cell" data-id="50-1" data-dollar="50" title="50-1"><img
                                     src="images/50-1.png" alt="50-1"></button></td>
                         <td></td>
@@ -387,7 +386,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>40$</th>
+                        <th>40ⓒ</th>
                         <td><button class="dollar-cell" data-id="40-1" data-dollar="40" title="40-1"><img
                                     src="images/40-1.png" alt="40-1"></button></td>
                         <td><button class="dollar-cell" data-id="40-2" data-dollar="40" title="40-2"><img
@@ -400,7 +399,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>30$</th>
+                        <th>30ⓒ</th>
                         <td><button class="dollar-cell" data-id="30-1" data-dollar="30" title="30-1"><img
                                     src="images/30-1.png" alt="30-1"></button></td>
                         <td><button class="dollar-cell" data-id="30-2" data-dollar="30" title="30-2"><img
@@ -414,7 +413,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>20$</th>
+                        <th>20ⓒ</th>
                         <td><button class="dollar-cell" data-id="20-1" data-dollar="20" title="20-1"><img
                                     src="images/20-1.png" alt="20-1"></button></td>
                         <td><button class="dollar-cell" data-id="20-2" data-dollar="20" title="20-2"><img
@@ -427,7 +426,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <th>10$</th>
+                        <th>10ⓒ</th>
                         <td><button class="dollar-cell" data-id="10-1" data-dollar="10" title="10-1"><img
                                     src="images/10-1.png" alt="10-1"></button></td>
                         <td><button class="dollar-cell" data-id="10-2" data-dollar="10" title="10-2"><img

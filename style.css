@@ -516,3 +516,16 @@ body {
 .item-two-panel .score-table {
     margin: 0;
 }
+
+.player-dollar-cell.free {
+    background: #4da6ff !important;
+}
+
+.player-dollar-cell.blocked {
+    cursor: not-allowed !important;
+}
+
+.player-dollar-cell.free.blocked {
+    background: #4da6ff !important;
+    cursor: not-allowed !important;
+}
