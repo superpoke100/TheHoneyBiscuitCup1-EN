@@ -434,15 +434,18 @@ function updateScore() {
     const ingame = Number(ingameScoreInput.value) || 0,
         artifact = Number(artifactCountInput.value) || 0,
         itemOne = artifact > 100 ? Math.floor((100 - artifact) * 7.5) : 0,
-        itemFive = calcItemFiveScore(),
+        itemFive = calcItemFiveScore() + (
+            currentPlayer === "p2"
+                ? getP2Bonus()
+                : 0
+        ),
         itemSix = calcItemSixScore(),
         itemSeven = calcItemSevenScore(),
         base = ingame + itemOne + itemTwoScore + itemSix,
         itemThree = calcItemThreeMultiplier(),
         itemFour = calcItemFourMultiplier(),
         totalMultiplier = 1 + (itemThree - 1) + (itemFour - 1),
-        p2Add = currentPlayer === "p2" ? getP2Bonus() : 0,
-        final = base * totalMultiplier + itemFive + itemSeven + p2Add;
+        final = base * totalMultiplier + itemFive + itemSeven;
     scoreText.textContent = itemTwoScore + "점";
     itemOneScoreText.textContent = itemOne + "점";
     itemThreeMultiplierText.textContent = fmtMul(itemThree) + "배";
