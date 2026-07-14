@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>점수 계산 표</title>
+    <title> Point Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,7 +13,7 @@
         <div class="player-switch-panel"><button class="player-toggle active" data-player="p1">1p</button><button
                 class="player-toggle" data-player="p2">2p</button></div>
         <div class="player-purchase-panel">
-            <div class="player-result-row"><span>1p 구매: <span id="p1Purchase">0ⓒ</span></span><span>2p 구매: <span
+            <div class="player-result-row"><span>1p Cost: <span id="p1Purchase">0ⓒ</span></span><span>2p Cost: <span
                         id="p2Purchase">0ⓒ</span></span></div>
             <table class="dollar-table player-dollar-table">
                 <tbody>
@@ -85,18 +85,21 @@
                 </tbody>
             </table>
         </div>
-        <div class="score-box score-panel">최종점수: <span id="finalScore">0점</span><br>인게임 클리어 점수: <input id="ingameScore"
-                class="score-input" type="number" value="0">점<br>1번 항목: <span id="itemOneScore">0점</span><br>획득 유물 개수:
-            <input id="artifactCount" class="score-input" type="number" value="0"></div>
+        <div class="score-box score-panel">Final Score: <span id="finalScore">0 pts</span><br>In-Game Score: <input
+                id="ingameScore" class="score-input" type="number" value="0"> pts<br>Item 1 Penalty: <span
+                id="itemOneScore">0 pts</span><br>Number of Relics:
+            <input id="artifactCount" class="score-input" type="number" value="0">
+        </div>
         <div class="item-two-panel">
-            <div class="item-two-title">2번 항목: <span id="score">0점</span></div>
+            <div class="item-two-title">Item 2 Score: <span id="score">0 pts</span></div>
             <div class="table-gradient-separator table-gradient-top"></div>
             <table class="score-table top-table">
                 <thead>
                     <tr>
                         <th class="row-header"></th>
-                        <th><button class="table-button base-button active" disabled>기본</button></th>
-                        <th><button class="table-button select-button" data-group="top" data-key="a">완벽한 전투</button></th>
+                        <th><button class="table-button base-button active" disabled>Normal</button></th>
+                        <th><button class="table-button select-button" data-group="top" data-key="a">Flawless
+                                Clear</button></th>
                         <th><button class="table-button select-button" data-group="top" data-key="b"><img
                                     src="images/망.png" alt="망"></button></th>
                         <th><button class="table-button select-button" data-group="top" data-key="c"><img
@@ -107,7 +110,7 @@
                                     src="images/의.png" alt="의"></button></th>
                         <th><button class="table-button select-button" data-group="top" data-key="g"><img
                                     src="images/식.png" alt="식"></button></th>
-                        <th class="total-header">합계</th>
+                        <th class="total-header">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,7 +124,7 @@
                             +40</td>
                         <td class="score-cell group-score" data-group="top" data-row="1" data-score="fg" colspan="2">
                             +100</td>
-                        <td class="total-cell" data-group="top" data-row-total="1">0점</td>
+                        <td class="total-cell" data-group="top" data-row-total="1">0 pts</td>
                     </tr>
                     <tr data-group="top" data-row="2">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -134,7 +137,7 @@
                         <td class="empty-cell"></td>
                         <td class="score-cell group-score" data-group="top" data-row="2" data-score="fg" colspan="2">
                             +100</td>
-                        <td class="total-cell" data-group="top" data-row-total="2">0점</td>
+                        <td class="total-cell" data-group="top" data-row-total="2">0 pts</td>
                     </tr>
                     <tr data-group="top" data-row="3">
                         <td class="row-label"><button class="id-button row-button image-row-button row-purple"
@@ -146,7 +149,7 @@
                             +120</td>
                         <td class="score-cell group-score" data-group="top" data-row="3" data-score="fg" colspan="2">
                             +100</td>
-                        <td class="total-cell" data-group="top" data-row-total="3">0점</td>
+                        <td class="total-cell" data-group="top" data-row-total="3">0 pts</td>
                     </tr>
                     <tr data-group="top" data-row="4">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -159,7 +162,7 @@
                         <td class="empty-cell"></td>
                         <td class="score-cell group-score" data-group="top" data-row="4" data-score="fg" colspan="2">
                             +100</td>
-                        <td class="total-cell" data-group="top" data-row-total="4">0점</td>
+                        <td class="total-cell" data-group="top" data-row-total="4">0 pts</td>
                     </tr>
                 </tbody>
             </table>
@@ -168,8 +171,9 @@
                 <thead>
                     <tr>
                         <th class="row-header"></th>
-                        <th><button class="table-button base-button active" disabled>기본</button></th>
-                        <th><button class="table-button select-button" data-group="bottom" data-key="a">완벽한 전투</button></th>
+                        <th><button class="table-button base-button active" disabled>Normal</button></th>
+                        <th><button class="table-button select-button" data-group="bottom" data-key="a">Flawless
+                                Clear</button></th>
                         <th><button class="table-button select-button" data-group="bottom" data-key="b"><img
                                     src="images/망.png" alt="망"></button></th>
                         <th><button class="table-button select-button" data-group="bottom" data-key="c"><img
@@ -180,7 +184,7 @@
                                     src="images/의.png" alt="의"></button></th>
                         <th><button class="table-button select-button" data-group="bottom" data-key="g"><img
                                     src="images/식.png" alt="식"></button></th>
-                        <th class="total-header">합계</th>
+                        <th class="total-header">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -195,7 +199,7 @@
                         <td class="empty-cell"></td>
                         <td class="score-cell group-score" data-group="bottom" data-row="5" data-score="fg" colspan="2">
                             +100</td>
-                        <td class="total-cell" data-group="bottom" data-row-total="5">0점</td>
+                        <td class="total-cell" data-group="bottom" data-row-total="5">0 pts</td>
                     </tr>
                     <tr data-group="bottom" data-row="6">
                         <td class="row-label"><button class="id-button row-button image-row-button row-purple"
@@ -208,7 +212,7 @@
                         <td class="empty-cell"></td>
                         <td class="score-cell group-score" data-group="bottom" data-row="6" data-score="fg" colspan="2">
                             +100</td>
-                        <td class="total-cell" data-group="bottom" data-row-total="6">0점</td>
+                        <td class="total-cell" data-group="bottom" data-row-total="6">0 pts</td>
                     </tr>
                 </tbody>
             </table>
@@ -217,8 +221,9 @@
                 <thead>
                     <tr>
                         <th class="row-header"></th>
-                        <th><button class="table-button base-button active" disabled>기본</button></th>
-                        <th><button class="table-button select-button" data-group="five" data-key="a">완벽한 전투</button></th>
+                        <th><button class="table-button base-button active" disabled>Normal</button></th>
+                        <th><button class="table-button select-button" data-group="five" data-key="a">Flawless
+                                Clear</button></th>
                         <th><button class="table-button select-button" data-group="five" data-key="b"><img
                                     src="images/망.png" alt="망"></button></th>
                         <th><button class="table-button select-button" data-group="five" data-key="c"><img
@@ -229,7 +234,7 @@
                                     src="images/의.png" alt="의"></button></th>
                         <th><button class="table-button select-button" data-group="five" data-key="g"><img
                                     src="images/식.png" alt="식"></button></th>
-                        <th class="total-header">합계</th>
+                        <th class="total-header">Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -243,7 +248,7 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="7">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="7">0 pts</td>
                     </tr>
                     <tr data-group="five" data-row="8">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -257,7 +262,7 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="8">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="8">0 pts</td>
                     </tr>
                     <tr data-group="five" data-row="9">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -272,7 +277,7 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="9">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="9">0 pts</td>
                     </tr>
                     <tr data-group="five" data-row="10">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -285,7 +290,7 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="10">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="10">0 pts</td>
                     </tr>
                     <tr data-group="five" data-row="11">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -298,7 +303,7 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="11">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="11">0 pts</td>
                     </tr>
                     <tr data-group="five" data-row="13">
                         <td class="row-label"><button class="id-button row-button image-row-button row-red"
@@ -313,7 +318,7 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="13">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="13">0 pts</td>
                     </tr>
                     <tr data-group="five" data-row="12">
                         <td class="row-label"><button class="id-button row-button image-row-button row-purple"
@@ -328,51 +333,61 @@
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
                         <td class="empty-cell"></td>
-                        <td class="total-cell" data-group="five" data-row-total="12">0점</td>
+                        <td class="total-cell" data-group="five" data-row-total="12">0 pts</td>
                     </tr>
                 </tbody>
             </table>
             <div class="table-gradient-separator table-gradient-bottom"></div>
         </div>
         <div class="multiplier-panel">
-            <div class="multiplier-result">3번 항목: <span id="itemThreeMultiplier">1배</span></div>
+            <div class="multiplier-result">Item 3: <span id="itemThreeMultiplier">1x</span></div>
             <div class="checklist-box">
-                <div class="checklist-title">3번 체크리스트</div><label><input type="checkbox" class="item-three-check"
-                        data-multiplier="1.15"> 3층 보스전에서 불사+불식을 동시에 보유: 1.15배율</label><label><input type="checkbox"
-                        class="item-three-check" data-multiplier="1.05"> 4층 마지막 노드를 통과한 시점에서 불사+불식을 동시에 보유:
-                    1.05배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.35"> 최종 5엔딩
-                    보스전에서 불사+불식을 동시에 보유: 1.35배율</label><label><input type="checkbox" class="item-three-check"
-                        data-multiplier="1.1"> 최종 5엔딩 보스전에서 불사, 불식 중 1개만 보유: 1.1배율</label><label><input type="checkbox"
-                        class="item-three-check" data-multiplier="1.01"> 최종 5엔딩 보스전을 6층에서 클리어한 경우:
-                    1.01배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.2"> 각 팀은 이, 쉐이, 왕, 허우서우, 숴의 육신을 최소 1회씩 처치 성공(예시: 135+245, 235+145, 145+235, 25+245풀강 등):
-                    1.2배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.01"> 1시간 이내로
-                    플레이 완료: 1.01배율</label><label><input type="checkbox" class="item-three-check" data-multiplier="0.9">
-                    3시간 초과로 플레이 완료: 0.9배율</label><label><input type="checkbox" class="item-three-check"
-                        data-multiplier="0.95"> 5층 보스전 이전에 패배: 0.95배율</label><label><input type="checkbox"
-                        class="item-three-check" data-multiplier="0.6"> 5층에 도달하지 못한 경우: 0.6배율</label><label
-                    class="inline-input-label">케오베를 편성하고 클리어한 보스전마다: 최종 점수에 1.005배율 <input id="keobeBossCount"
-                        class="small-number-input" type="number" value="0" min="0"> 회</label>
+                <div class="checklist-title">Item 3 Checklist</div><label><input type="checkbox"
+                        class="item-three-check" data-multiplier="1.15"> Have Merciless + Ceaseless at F3 Boss:
+                    1.15x</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.05"> Have
+                    Merciless + Ceaseless after final node of F4:
+                    1.05x</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.35"> Have
+                    Merciless + Ceaseless at Final Ending 5 Boss Fight</label><label><input type="checkbox"
+                        class="item-three-check" data-multiplier="1.1"> Have only 1 of Merciless or Ceaseless at Final
+                    Ending 5 Boss Fight: 1.1x</label><label><input type="checkbox" class="item-three-check"
+                        data-multiplier="1.01"> Clear Ending 5 Boss Fight on F6:
+                    1.01x</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.2"> The TEAM
+                    has defeated each of Yi, Sui, Wang, Bestial Hou and Bestial Ju at least once (Examples: 135+245,
+                    235+145, 145+235, 25+245 Wage War):
+                    1.2x</label><label><input type="checkbox" class="item-three-check" data-multiplier="1.01"> Run Time
+                    is less than 1 hour: 1.01x</label><label><input type="checkbox" class="item-three-check"
+                        data-multiplier="0.9">
+                    Run Time is more than 3 hours: 0.9x</label><label><input type="checkbox" class="item-three-check"
+                        data-multiplier="0.95"> Perished after reaching F5 but before F5 Boss:
+                    0.95x</label><label><input type="checkbox" class="item-three-check" data-multiplier="0.6"> Perished
+                    before reaching F5: 0.6x</label><label class="inline-input-label">Number of boss fights cleared with
+                    Ceobe in Squad (1.005x final score multiplier per fight) <input id="keobeBossCount"
+                        class="small-number-input" type="number" value="0" min="0"> Boss Fights</label>
             </div><br>
-            <div class="multiplier-result">4번 항목: <span id="itemFourMultiplier">1배</span></div>
+            <div class="multiplier-result">Item 4: <span id="itemFourMultiplier">1x</span></div>
             <div class="checklist-box">
-                <div class="checklist-title">4번 체크리스트</div><label><input type="radio" name="item-four"
-                        class="item-four-radio" value="0.8"> 0.8배율: 천사부 분대</label><label><input type="radio"
-                        name="item-four" class="item-four-radio" value="0.85"> 0.85배율: 대리인 분대</label><label><input
-                        type="radio" name="item-four" class="item-four-radio" value="0.9"> 0.9배율: 관광객 분대, 상인
-                    분대</label><label><input type="radio" name="item-four" class="item-four-radio" value="1" checked>
-                    1배율: 초강수 분대</label><label><input type="radio" name="item-four" class="item-four-radio" value="1.2">
-                    1.2배율: 꽃다발 분대</label><label><input type="radio" name="item-four" class="item-four-radio"
-                        value="1.3"> 1.3배율: 학자 분대, 지원 분대, 특근 분대</label><label><input type="radio" name="item-four"
-                        class="item-four-radio" value="1.35"> 1.35배율: 지휘 분대, 파괴 전술 분대, 방어 전술 분대</label><label><input
-                        type="radio" name="item-four" class="item-four-radio" value="1.4"> 1.4배율: 쉐이 울림 분대, 강습 전술 분대,
-                    사세대 분대</label><label><input type="radio" name="item-four" class="item-four-radio" value="1.5">
-                    1.5배율: 원거리 전술 분대, 고지대/지상 돌파 분대</label><label><input type="radio" name="item-four"
-                        class="item-four-radio" value="1.6"> 1.6배율: 고급화 분대</label>
+                <div class="checklist-title">Item 4: Starting Squad Multipliers</div><label><input type="radio"
+                        name="item-four" class="item-four-radio" value="0.8"> 0.8x: Tianshi Bureau
+                    Squad</label><label><input type="radio" name="item-four" class="item-four-radio" value="0.85">
+                    0.85x: Proxy Squad</label><label><input type="radio" name="item-four" class="item-four-radio"
+                        value="0.9"> 0.9x: Tourist Squad, Merchant Squad</label>
+                <label><input type="radio" name="item-four" class="item-four-radio" value="1" checked>
+                    1.0x: Perilous Game Squad</label><label><input type="radio" name="item-four" class="item-four-radio"
+                        value="1.2">
+                    1.2x: Blooming Flowers Squad</label><label><input type="radio" name="item-four"
+                        class="item-four-radio" value="1.3"> 1.3x: Knowledge Squad, Support Squad, Special
+                    Squad</label><label><input type="radio" name="item-four" class="item-four-radio" value="1.35">
+                    1.35x: Leader Squad, Tactical Destruction Squad, Tactical Fortification Squad</label><label><input
+                        type="radio" name="item-four" class="item-four-radio" value="1.4"> 1.4x: Sui's Shadow Squad,
+                    Tactical Assault Squad, Sui Regulator Squad</label><label><input type="radio" name="item-four"
+                        class="item-four-radio" value="1.5">
+                    1.5x: Tactical Ranged Squad, High Ground/Ground Breaching Squad</label><label><input type="radio"
+                        name="item-four" class="item-four-radio" value="1.6"> 1.6x: First-Class Squad</label>
             </div><br>
         </div>
         <div class="extra-score-panel">
-            <div class="extra-score-result">5번 항목: <span id="itemFiveScore">0점</span></div>
-            <div class="checklist-title">5번 표</div>
+            <div class="extra-score-result">Item 5: <span id="itemFiveScore">0 pts</span></div>
+            <div class="checklist-title">Item 5 Table</div>
             <table class="dollar-table">
                 <tbody>
                     <tr>
@@ -442,28 +457,32 @@
                     </tr>
                 </tbody>
             </table><br>
-            <div class="extra-score-result">6번 항목: <span id="itemSixScore">0점</span></div><label
-                class="inline-input-label">선행서버 플레이 시 대회 기준 미출시 오퍼레이터/모듈 사용 횟수: <input id="unreleasedUsageCount"
-                    class="small-number-input" type="number" value="0" min="0"> 회</label><br><br>
-            <div class="extra-score-result">7번 항목: <span id="itemSevenScore">0점</span></div><label
-                class="inline-input-label">초과 오리지늄 각뿔 출금 개수: <input id="extraOriginiumCount" class="small-number-input"
-                    type="number" value="0" min="0"> 개</label><br>
+            <div class="extra-score-result">Item 6: <span id="itemSixScore">0 pts</span></div><label
+                class="inline-input-label">Infractions committed by using unreleased modules/operators<input
+                    id="unreleasedUsageCount" class="small-number-input" type="number" value="0" min="0">
+                times</label><br><br>
+            <div class="extra-score-result">Item 7: <span id="itemSevenScore">0 pts</span></div><label
+                class="inline-input-label">Amount exceeding Withdraw Limit: <input id="extraOriginiumCount"
+                    class="small-number-input" type="number" value="0" min="0"> Ingots</label><br>
         </div>
         <div class="manual-panel">
-            <div class="manual-title">설명서</div>
+            <div class="manual-title">Manual</div>
 
             <div class="manual-content">
-                <p>1. 최상단에서 1p와 2p를 변경할 수 있습니다.</p>
-                <p>2. 표에서 구매한 오퍼레이터는 클릭으로 표시할 수 있습니다. 무료로 구매한 경우 우클릭으로 구매할 수 있습니다.</p>
-                <p>3. 최종점수는 룰북의 계산대로 적용됩니다.</p>
-                <p>4. 인게임 클리어 점수칸에는 본인의 인게임 클리어 점수를 입력하면 됩니다.</p>
-                <p>5. 1번 항목에서 획득한 유물의 개수를 입력하면 점수를 적용할 수 있습니다.</p>
-                <p>6. 2번 항목에서 보스 버튼을 눌러 해당 점수를 적용할 수 있습니다. '완벽한 전투'와 소장품 버튼을 눌러 추가 점수를 확인할 수 있습니다.</p>
-                <p>7. 2번 항목에서 보스 버튼의 순서는 룰북의 순서와 같습니다. 기본 맵이면 보라색, 맵이 변형되었다면 빨간색 입니다.</p>
-                <p>8. 3번 항목에서 만족한 조건을 적용할 수 있습니다.</p>
-                <p>9. 4번 항목에서 분대를 선택할 수 있습니다.</p>
-                <p>10. 5번 항목에서 2p는 미사용 10코인당 50점이 반영이 되어있습니다. 해금하지 않은 오퍼레이터 모집 시 클릭하여 적용할 수 있습니다.</p>
-                <p>11. 6번, 7번 항목도 마찬가지로 본인의 상황에 맞게 적용할 수 있습니다.</p>
+                <p>1. Player 1 and Player 2 can be toggled at the top.</p>
+                <p>2. Left Click an Operator to purchase them. Right Click if they are purchased for free.</p>
+                <p>3. The final score is computed based on the rule book.</p>
+                <p>4. Enter your in-game score in the in-game score box.</p>
+                <p>5. In Item 1, Enter the number of relics obtained.</p>
+                <p>6. In Item 2, select the boss icon to compute the score. Bonuses for Flawless Clear and additional
+                    relics can be applied by selecting them.</p>
+                <p>7. The order of the boss icons in Item 2 is the same as the rulebook. The normal map ("Defining the
+                    World") has a purple icon, and the modified map ("Stasis") has a red icon.</p>
+                <p>8. In Item 3, check ALL conditions that have been satisfied.</p>
+                <p>9. In Item 4, select your starting squad.</p>
+                <p>10. In Item 5, select all operators that were recruited without being unlocked. The score for Player
+                    2 includes the bonus for unused coins.</p>
+                <p>11. Items 6 and 7 should be modified based on your situation.</p>
             </div>
         </div>
     </div>

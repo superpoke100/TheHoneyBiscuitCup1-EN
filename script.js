@@ -355,7 +355,7 @@ function updatePlayerUI() {
     });
     p1PurchaseText.textContent = getPurchase("p1") + "ⓒ";
     p2PurchaseText.textContent = getPurchase("p2") + "ⓒ";
-    p2BonusText.textContent = getP2Bonus() + "점"
+    p2BonusText.textContent = getP2Bonus() + " pts"
 }
 
 function isLowerDollarBlocked(id) {
@@ -446,14 +446,14 @@ function updateScore() {
         itemFour = calcItemFourMultiplier(),
         totalMultiplier = 1 + (itemThree - 1) + (itemFour - 1),
         final = base * totalMultiplier + itemFive + itemSeven;
-    scoreText.textContent = itemTwoScore + "점";
-    itemOneScoreText.textContent = itemOne + "점";
-    itemThreeMultiplierText.textContent = fmtMul(itemThree) + "배";
-    itemFourMultiplierText.textContent = fmtMul(itemFour) + "배";
-    itemFiveScoreText.textContent = itemFive + "점";
-    itemSixScoreText.textContent = itemSix + "점";
-    itemSevenScoreText.textContent = itemSeven + "점";
-    finalScoreText.textContent = fmtScore(final) + "점";
+    scoreText.textContent = itemTwoScore + " pts";
+    itemOneScoreText.textContent = itemOne + " pts";
+    itemThreeMultiplierText.textContent = fmtMul(itemThree) + "x";
+    itemFourMultiplierText.textContent = fmtMul(itemFour) + "x";
+    itemFiveScoreText.textContent = itemFive + " pts";
+    itemSixScoreText.textContent = itemSix + " pts";
+    itemSevenScoreText.textContent = itemSeven + " pts";
+    finalScoreText.textContent = fmtScore(final) + " pts";
     updatePlayerUI()
 }
 
@@ -562,18 +562,18 @@ function getActiveColumns(g) {
     const cols = {
         ...selected[g].columns
     };
-if (g === "top") {
-    const r = selected.bottom.activeRow;
-    if (r === "5") {
-        cols.b = true;
-        cols.d = true;
-    }
+    if (g === "top") {
+        const r = selected.bottom.activeRow;
+        if (r === "5") {
+            cols.b = true;
+            cols.d = true;
+        }
 
-    // 4번 이미지 선택 시 무 자동
-    if (r === "6") {
-        cols.c = true;
+        // 4번 이미지 선택 시 무 자동
+        if (r === "6") {
+            cols.c = true;
+        }
     }
-}
     if (g === "bottom") {
         const r = selected.bottom.activeRow;
         if (r === "5") {
@@ -657,7 +657,7 @@ function activateCell(g, r, t) {
 function setRowTotal(g, r, sum) {
     const c = document.querySelector(`[data-group="${g}"][data-row-total="${r}"]`);
     if (c) {
-        c.textContent = sum + "점";
+        c.textContent = sum + " pts";
         c.classList.add("active")
     }
 }
@@ -666,7 +666,7 @@ function clearAll() {
     document.querySelectorAll(".score-cell").forEach(e => e.classList.remove("active"));
     document.querySelectorAll(".total-cell").forEach(e => {
         e.classList.remove("active");
-        e.textContent = "0점"
+        e.textContent = "0 pts"
     })
 }
 loadCalcState(currentPlayer);
