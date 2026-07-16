@@ -249,8 +249,7 @@ function buyTop(c, free) {
     let cur = playerSelections[currentPlayer];
     if (
         currentPlayer === "p2" &&
-        playerSelections.p1[id] &&
-        playerSelections.p1[id].mode === "free"
+        isP1TopFree(id)
     ) {
         return;
     }
@@ -266,10 +265,7 @@ function buyTop(c, free) {
         let mode = "free";
         let cost = 0;
 
-        if (
-            currentPlayer === "p2" &&
-            playerSelections.p1[id]
-        ) {
+        if (isP2DuplicateByP1(id)) {
             mode = "triple";
             cost = 0;
         }
@@ -286,15 +282,9 @@ function buyTop(c, free) {
     }
     let cost = base,
         mode = "paid";
-    if (currentPlayer === "p2" && playerSelections.p1[id]) {
-        if (playerSelections.p1[id].mode === "free") {
-            cost = 0;
-            mode = "free";
-        }
-        else {
-            cost = base * 2;
-            mode = "triple";
-        }
+    if (isP2DuplicateByP1(id)) {
+        cost = base * 2;
+        mode = "triple";
     }
     if (getTotalPurchase() + cost > 300) return;
     cur[id] = {
@@ -312,6 +302,26 @@ function getPurchase(p) {
 
 function getTotalPurchase() {
     return getPurchase("p1") + getPurchase("p2")
+}
+function isP1LowerSelected(id) {
+    return calcStates.p1.dollar.includes(id);
+}
+
+function isP1TopFree(id) {
+    return (
+        playerSelections.p1[id] &&
+        playerSelections.p1[id].mode === "free"
+    );
+}
+
+function isP2DuplicateByP1(id) {
+    return (
+        currentPlayer === "p2" &&
+        (
+            !!playerSelections.p1[id] ||
+            isP1LowerSelected(id)
+        )
+    );
 }
 
 function getP2Bonus() {
@@ -376,7 +386,7 @@ function isLowerDollarBlocked(id) {
 }
 
 function isLowerDollarDuplicate(id) {
-    return currentPlayer === "p2" && !!playerSelections.p1[id]
+    return isP2DuplicateByP1(id);
 }
 
 function updateLowerDollarUI() {
@@ -466,7 +476,7 @@ function calcItemFiveScore() {
             t += price
         }
     });
-    return t * (-5)
+    return t * (-6)
 }
 
 function calcItemSixScore() {
